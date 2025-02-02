@@ -1,3 +1,5 @@
+//to compile client and cretae a new main.exe use this command: "clang -o main.exe .\src\*.c -Llib -lraylibdll -lws2_32 -Iinclude" inside Client root folder
+
 #include "client.h"
 
 #ifdef _WIN32
