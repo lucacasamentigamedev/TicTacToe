@@ -1,10 +1,8 @@
 #include "TicTacToe.h"
 
 int main() {
-    // Inizializzazione del gioco
     game_init();
 
-    // Ciclo principale del gioco
     while (!quit && !WindowShouldClose()) {
         game_receive_packet();
         switch (gamestate) {
@@ -12,12 +10,10 @@ int main() {
                 game_join_process_input();
                 game_join_draw();
                 break;
-
             case LOBBY:
                 game_lobby_process_input();
                 game_lobby_draw();
                 break;
-
             case PLAY:
                 game_play_process_input();
                 game_play_update();

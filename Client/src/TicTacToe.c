@@ -130,7 +130,7 @@ void game_lobby_process_input()
         uint32_t packet[2] = {COMMAND_CHALLENGE, (uint32_t)room_id};
         send_packet((char*)packet, sizeof(packet));
 
-        printf("Sfida inviata alla stanza %d\n", room_id);
+        printf("challenge sent to room %d\n", room_id);
     }
 }
 
@@ -138,8 +138,8 @@ void game_lobby_draw()
 {
     BeginDrawing();
     ClearBackground(BLUE);
-    DrawText("Premi SPAZIO per creare una stanza", 10, 50, 20, WHITE);
-    DrawText("Stanze disponibili:", 10, 90, 20, WHITE);
+    DrawText("press SPACE to create room", 10, 50, 20, WHITE);
+    DrawText("Available rooms:", 10, 90, 20, WHITE);
 
     int y_offset = 120;
 
@@ -148,12 +148,12 @@ void game_lobby_draw()
         if (rooms_ids[i] != 0)
         {
             char room_text[50];
-            sprintf(room_text, "Stanza ID: %d", rooms_ids[i]);
+            sprintf(room_text, "Room ID: %d", rooms_ids[i]);
             DrawText(room_text, 10, y_offset, 20, WHITE);
             y_offset += 30;
         }
     }
-    DrawText("Inserisci ID stanza per sfidare:", 10, y_offset + 20, 20, WHITE);
+    DrawText("Insert room ID to challenge:", 10, y_offset + 20, 20, WHITE);
     DrawText(room_id_text, 10, y_offset + 50, 20, YELLOW);
     EndDrawing();
 }
@@ -169,7 +169,7 @@ void game_play_process_input()
         uint32_t index = row * GRID_SIZE + col;
         uint32_t packet[2] = {COMMAND_MOVE, index};
         send_packet((char*)packet, sizeof(packet));
-        printf("Hai cliccato sulla cella: %d\n", index);
+        printf("U have press to cell index: %d\n", index);
     }
 }
 void game_play_update()
